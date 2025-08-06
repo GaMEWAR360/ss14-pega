@@ -7,27 +7,27 @@
         - to: rosebouquet
           steps:
             - tag: Rose
-              name: construction-graph-tag-rose
+              name: rose
               icon:
                 sprite: _Wega/Objects/Specific/Hydroponics/rose.rsi
                 state: produce
             - tag: Rose
-              name: construction-graph-tag-rose
+              name: rose
               icon:
                 sprite: _Wega/Objects/Specific/Hydroponics/rose.rsi
                 state: produce
             - tag: Rose
-              name: construction-graph-tag-rose
+              name: rose
               icon:
                 sprite: _Wega/Objects/Specific/Hydroponics/rose.rsi
                 state: produce
             - tag: Rose
-              name: construction-graph-tag-rose
+              name: rose
               icon:
                 sprite: _Wega/Objects/Specific/Hydroponics/rose.rsi
                 state: produce
             - tag: Rose
-              name: construction-graph-tag-rose
+              name: rose
               icon:
                 sprite: _Wega/Objects/Specific/Hydroponics/rose.rsi
                 state: produce
@@ -55,27 +55,27 @@
         - to: sunflowerbouquet
           steps:
             - tag: Sunflower
-              name: construction-graph-tag-sunflower
+              name: sunflower
               icon:
                 sprite: _Wega/Objects/Specific/Hydroponics/sunflower.rsi
                 state: produce
             - tag: Sunflower
-              name: construction-graph-tag-sunflower
+              name: sunflower
               icon:
                 sprite: _Wega/Objects/Specific/Hydroponics/sunflower.rsi
                 state: produce
             - tag: Sunflower
-              name: construction-graph-tag-sunflower
+              name: sunflower
               icon:
                 sprite: _Wega/Objects/Specific/Hydroponics/sunflower.rsi
                 state: produce
             - tag: Sunflower
-              name: construction-graph-tag-sunflower
+              name: sunflower
               icon:
                 sprite: _Wega/Objects/Specific/Hydroponics/sunflower.rsi
                 state: produce
             - tag: Sunflower
-              name: construction-graph-tag-sunflower
+              name: sunflower
               icon:
                 sprite: _Wega/Objects/Specific/Hydroponics/sunflower.rsi
                 state: produce
@@ -103,27 +103,27 @@
         - to: poppybouquet
           steps:
             - tag: Poppyflower
-              name: construction-graph-tag-poppy
+              name: poppy
               icon:
                 sprite: Objects/Specific/Hydroponics/poppy.rsi
                 state: produce
             - tag: Poppyflower
-              name: construction-graph-tag-poppy
+              name: poppy
               icon:
                 sprite: Objects/Specific/Hydroponics/poppy.rsi
                 state: produce
             - tag: Poppyflower
-              name: construction-graph-tag-poppy
+              name: poppy
               icon:
                 sprite: Objects/Specific/Hydroponics/poppy.rsi
                 state: produce
             - tag: Poppyflower
-              name: construction-graph-tag-poppy
+              name: poppy
               icon:
                 sprite: Objects/Specific/Hydroponics/poppy.rsi
                 state: produce
             - tag: Poppyflower
-              name: construction-graph-tag-poppy
+              name: poppy
               icon:
                 sprite: Objects/Specific/Hydroponics/poppy.rsi
                 state: produce
@@ -151,22 +151,22 @@
         - to: bouquetmixed
           steps:
             - tag: Flower
-              name: construction-graph-tag-poppy
+              name: poppy
               icon:
                 sprite: Objects/Specific/Hydroponics/poppy.rsi
                 state: produce
             - tag: Sunflower
-              name: construction-graph-tag-sunflower
+              name: sunflower
               icon:
                 sprite: _Wega/Objects/Specific/Hydroponics/sunflower.rsi
                 state: produce
             - tag: Peaceflower
-              name: construction-graph-tag-peaceflower
+              name: peaceflower
               icon:
                 sprite: _Wega/Objects/Specific/Hydroponics/peaceflower.rsi
                 state: produce
             - tag: Rose
-              name: construction-graph-tag-rose
+              name: rose
               icon:
                 sprite: _Wega/Objects/Specific/Hydroponics/rose.rsi
                 state: produce

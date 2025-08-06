@@ -324,8 +324,6 @@
   - type: PhysicalComposition
     materialComposition:
       Plastic: 25
-  - type: StaticPrice
-    price: 5
 
 - type: entity
   parent: ClothingMaskBase
@@ -344,9 +342,6 @@
   - type: IngestionBlocker
   - type: AddAccentClothing
     accent: MumbleAccent
-  - type: EmoteBlocker
-    blocksCategories:
-    - Vocal
   - type: Construction
     graph: Muzzle
     node: muzzle

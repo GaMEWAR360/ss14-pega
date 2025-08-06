@@ -3,7 +3,7 @@
   parent: BaseAction
   name: Honk
   description: Honk!
-  categories: [ HideSpawnMenu ]
+  noSpawn: true
   components:
   - type: Action
     icon: Objects/Fun/bikehorn.rsi/icon.png

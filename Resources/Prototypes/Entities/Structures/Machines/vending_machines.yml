@@ -1,5 +1,3 @@
-# base
-
 - type: entity
   id: VendingMachine
   parent: BaseMachinePowered
@@ -77,11 +75,6 @@
   - type: Speech
     speechVerb: Robotic
     speechSounds: Vending
-  - type: Vocalizer
-    minVocalizeInterval: 8m
-    maxVocalizeInterval: 10m
-    hideChat: true
-  - type: VocalizerRequiresPower
   - type: SpookySpeaker
     messageSet: SpookySpeakerMessagesGeneric
     speakChance: 0.2
@@ -110,72 +103,6 @@
   - type: WiresVisuals
 
 - type: entity
-  id: VendingMachineWallmount
-  parent: BaseWallmountMachine
-  name: vending machine
-  abstract: true
-  components:
-  - type: StationAiWhitelist
-  - type: AmbientOnPowered
-  - type: AmbientSound
-    volume: -9
-    range: 3
-    enabled: false
-    sound:
-      path: /Audio/Ambience/Objects/vending_machine_hum.ogg
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Breakage"]
-      - !type:EjectVendorItems
-    - trigger:
-        !type:DamageTrigger
-        damage: 200
-      behaviors:
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          SheetSteel1:
-            min: 1
-            max: 1
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalGlassBreak
-  - type: Repairable
-    doAfterDelay: 8
-  - type: ActivatableUI
-    key: enum.VendingMachineUiKey.Key
-  - type: ActivatableUIRequiresPower
-  - type: UserInterface
-    interfaces:
-      enum.VendingMachineUiKey.Key:
-        type: VendingMachineBoundUserInterface
-      enum.WiresUiKey.Key:
-        type: WiresBoundUserInterface
-  - type: WiresPanel
-  - type: Wires
-    boardName: wires-board-name-vendingmachine
-    layoutId: Vending
-  - type: PointLight
-    enabled: false
-    castShadows: false
-    radius: 1.5
-  - type: LitOnPowered
-  - type: Appearance
-  - type: WiresVisuals
-  - type: Electrified
-    enabled: false
-    usesApcPower: true
-  - type: Rotatable
-
-# Vending machines
-
-- type: entity
   parent: VendingMachine
   id: VendingMachineCondiments
   name: condiment station
@@ -201,8 +128,8 @@
         layer:
         - MachineLayer
         density: 190
-  - type: DatasetVocalizer
-    dataset: CondimentVendAds
+  - type: Advertise
+    pack: CondimentVendAds
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Transform
@@ -219,8 +146,8 @@
     offState: off
     brokenState: broken
     normalState: normal-unshaded
-  - type: DatasetVocalizer
-    dataset: CondimentVendAds
+  - type: Advertise
+    pack: AmmoVendAds
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
@@ -247,8 +174,8 @@
     normalState: normal-unshaded
     denyState: deny-unshaded
     loopDeny: false
-  - type: DatasetVocalizer
-    dataset: BoozeOMatAds
+  - type: Advertise
+    pack: BoozeOMatAds
   - type: SpeakOnUIClosed
     pack: BoozeOMatGoodbyes
   - type: Sprite
@@ -281,8 +208,8 @@
     normalState: normal-unshaded
     denyState: deny-unshaded
     loopDeny: false
-  - type: DatasetVocalizer
-    dataset: BruiseOMatAds
+  - type: Advertise
+    pack: BruiseOMatAds
   - type: SpeakOnUIClosed
     pack: BruiseOMatGoodbyes
   - type: Sprite
@@ -344,8 +271,8 @@
     brokenState: broken
     normalState: normal-unshaded
     ejectState: eject-unshaded
-  - type: DatasetVocalizer
-    dataset: ChefvendAds
+  - type: Advertise
+    pack: ChefvendAds
   - type: SpeakOnUIClosed
     pack: ChefvendGoodbyes
   - type: Sprite
@@ -380,8 +307,8 @@
     normalState: normal-unshaded
     ejectState: eject-unshaded
     denyState: deny-unshaded
-  - type: DatasetVocalizer
-    dataset: CigaretteMachineAds
+  - type: Advertise
+    pack: CigaretteMachineAds
   - type: SpeakOnUIClosed
     pack: CigaretteMachineGoodbyes
   - type: Sprite
@@ -407,8 +334,8 @@
     brokenState: broken
     normalState: normal-unshaded
     denyState: deny-unshaded
-  - type: DatasetVocalizer
-    dataset: ClothesMateAds
+  - type: Advertise
+    pack: ClothesMateAds
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
@@ -438,8 +365,8 @@
     brokenState: broken
     normalState: normal-unshaded
     denyState: deny-unshaded
-  - type: DatasetVocalizer
-    dataset: ClothesMateAds
+  - type: Advertise
+    pack: ClothesMateAds
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
@@ -476,8 +403,8 @@
     ejectDelay: 5
     soundVend: /Audio/Machines/machine_vend_hot_drink.ogg
     initialStockQuality: 0.33
-  - type: DatasetVocalizer
-    dataset: HotDrinksMachineAds
+  - type: Advertise
+    pack: HotDrinksMachineAds
   - type: SpeakOnUIClosed
     pack: HotDrinksMachineGoodbyes
   - type: Sprite
@@ -515,8 +442,8 @@
     denyState: deny-unshaded
     ejectDelay: 1.9
     initialStockQuality: 0.33
-  - type: DatasetVocalizer
-    dataset: RobustSoftdrinksAds
+  - type: Advertise
+    pack: RobustSoftdrinksAds
   - type: SpeakOnUIClosed
     pack: RobustSoftdrinksGoodbyes
   - type: Sprite
@@ -660,8 +587,8 @@
     denyState: deny-unshaded
     ejectDelay: 1.9
     initialStockQuality: 0.33
-  - type: DatasetVocalizer
-    dataset: RobustSoftdrinksAds
+  - type: Advertise
+    pack: RobustSoftdrinksAds
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/shamblersjuice.rsi
     layers:
@@ -694,8 +621,8 @@
     denyState: deny-unshaded
     ejectDelay: 1.9
     initialStockQuality: 0.33
-  - type: DatasetVocalizer
-    dataset: RobustSoftdrinksAds
+  - type: Advertise
+    pack: RobustSoftdrinksAds
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
@@ -730,8 +657,8 @@
     denyState: deny-unshaded
     ejectDelay: 1.9
     initialStockQuality: 0.33
-  - type: DatasetVocalizer
-    dataset: DrGibbAds
+  - type: Advertise
+    pack: DrGibbAds
   - type: SpeakOnUIClosed
     pack: DrGibbGoodbyes
   - type: Sprite
@@ -776,8 +703,8 @@
     denyState: deny-unshaded
     ejectDelay: 1.9
     initialStockQuality: 0.33
-  - type: DatasetVocalizer
-    dataset: SmiteAds
+  - type: Advertise
+    pack: SmiteAds
   - type: SpeakOnUIClosed
     pack: SmiteGoodbyes
   - type: PointLight
@@ -797,8 +724,8 @@
     brokenState: broken
     normalState: normal-unshaded
     ejectState: eject-unshaded
-  - type: DatasetVocalizer
-    dataset: DinnerwareAds
+  - type: Advertise
+    pack: DinnerwareAds
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
@@ -829,8 +756,8 @@
     offState: off
     brokenState: broken
     normalState: normal-unshaded
-  - type: DatasetVocalizer
-    dataset: MagiVendAds
+  - type: Advertise
+    pack: MagiVendAds
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
@@ -862,8 +789,8 @@
     brokenState: broken
     normalState: normal-unshaded
     initialStockQuality: 0.33
-  - type: DatasetVocalizer
-    dataset: DiscountDansAds
+  - type: Advertise
+    pack: DiscountDansAds
   - type: SpeakOnUIClosed
     pack: DiscountDansGoodbyes
   - type: Sprite
@@ -925,8 +852,8 @@
     ejectState: eject-unshaded
     denyState: deny-unshaded
     ejectDelay: 0.6
-  - type: DatasetVocalizer
-    dataset: NanoMedAds
+  - type: Advertise
+    pack: NanoMedAds
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
@@ -947,7 +874,7 @@
     color: "#9dc5c9"
   - type: GuideHelp
     guides:
-    - MedicalDoctor
+    - Medical Doctor
 
 - type: entity
   parent: VendingMachine
@@ -962,8 +889,8 @@
     normalState: normal-unshaded
     ejectState: eject-unshaded
     denyState: deny-unshaded
-  - type: DatasetVocalizer
-    dataset: NutriMaxAds
+  - type: Advertise
+    pack: NutriMaxAds
   - type: SpeakOnUIClosed
     pack: NutriMaxGoodbyes
   - type: Sprite
@@ -996,8 +923,8 @@
     normalState: normal-unshaded
     ejectState: eject-unshaded
     denyState: deny-unshaded
-  - type: DatasetVocalizer
-    dataset: SecTechAds
+  - type: Advertise
+    pack: SecTechAds
   - type: SpeakOnUIClosed
     pack: SecTechGoodbyes
   - type: Sprite
@@ -1035,8 +962,8 @@
     normalState: normal-unshaded
     ejectState: eject-unshaded
     denyState: deny-unshaded
-  - type: DatasetVocalizer
-    dataset: MegaSeedAds
+  - type: Advertise
+    pack: MegaSeedAds
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
@@ -1078,8 +1005,8 @@
     ejectState: eject-unshaded
     denyState: deny-unshaded
     initialStockQuality: 0.33
-  - type: DatasetVocalizer
-    dataset: GetmoreChocolateCorpAds
+  - type: Advertise
+    pack: GetmoreChocolateCorpAds
   - type: SpeakOnUIClosed
     pack: GetmoreChocolateCorpGoodbyes
   - type: Sprite
@@ -1223,8 +1150,8 @@
     ejectState: eject-unshaded
     denyState: deny-unshaded
     initialStockQuality: 0.33
-  - type: DatasetVocalizer
-    dataset: BodaAds
+  - type: Advertise
+    pack: BodaAds
   - type: SpeakOnUIClosed
     pack: BodaGoodbyes
   - type: Sprite
@@ -1257,8 +1184,8 @@
     ejectState: eject-unshaded
     denyState: deny-unshaded
     screenState: screen
-  - type: DatasetVocalizer
-    dataset: AutoDrobeAds
+  - type: Advertise
+    pack: AutoDrobeAds
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
@@ -1292,8 +1219,8 @@
     normalState: normal-unshaded
     ejectState: eject-unshaded
     denyState: deny-unshaded
-  - type: DatasetVocalizer
-    dataset: VendomatAds
+  - type: Advertise
+    pack: VendomatAds
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
@@ -1324,8 +1251,8 @@
     normalState: normal-unshaded
     ejectState: eject-unshaded
     denyState: deny-unshaded
-  - type: DatasetVocalizer
-    dataset: VendomatAds
+  - type: Advertise
+    pack: VendomatAds
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
@@ -1389,8 +1316,8 @@
     normalState: normal-unshaded
     ejectState: eject-unshaded
     ejectDelay: 1.8
-  - type: DatasetVocalizer
-    dataset: GoodCleanFunAds
+  - type: Advertise
+    pack: GoodCleanFunAds
   - type: SpeakOnUIClosed
     pack: GoodCleanFunGoodbyes
   - type: Sprite
@@ -1422,8 +1349,8 @@
     brokenState: broken
     normalState: normal-unshaded
     initialStockQuality: 0.33
-  - type: DatasetVocalizer
-    dataset: ChangAds
+  - type: Advertise
+    pack: ChangAds
   - type: SpeakOnUIClosed
     pack: ChangGoodbyes
   - type: Sprite
@@ -1487,8 +1414,8 @@
     brokenState: broken
     normalState: normal-unshaded
     initialStockQuality: 0.33
-  - type: DatasetVocalizer
-    dataset: DonutAds
+  - type: Advertise
+    pack: DonutAds
   - type: SpeakOnUIClosed
     pack: DonutGoodbyes
   - type: Sprite
@@ -1506,6 +1433,59 @@
     energy: 1.6
     color: "#d4ab33"
 
+# wallmounted machines
+
+- type: entity
+  id: VendingMachineWallmount
+  parent: VendingMachine
+  name: vending machine
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wallmount
+  components:
+  - type: Sprite
+    drawdepth: WallMountedItems
+    snapCardinals: false
+  - type: Rotatable
+  - type: WallMount
+    arc: 175
+  - type: Transform
+    noRot: false
+
+- type: entity
+  parent: VendingMachineWallmount
+  id: VendingMachineWallMedical
+  name: NanoMed
+  description: "It's a wall-mounted medical equipment dispenser. Natural chemicals only!"
+  components:
+  - type: VendingMachine
+    pack: NanoMedInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    denyState: deny-unshaded
+  - type: Sprite
+    sprite: Structures/Machines/VendingMachines/wallmed.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - texture: Structures/Machines/VendingMachines/maintenance_panel.png
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.3
+    energy: 1.6
+    color: "#43ccb5"
+  - type: AccessReader
+    access: [["Medical"]]
+  - type: GuideHelp
+    guides:
+    - Medical
+
 # job clothing
 
 - type: entity
@@ -1519,8 +1499,8 @@
     offState: off
     brokenState: broken
     normalState: normal-unshaded
-  - type: DatasetVocalizer
-    dataset: HyDrobeAds
+  - type: Advertise
+    pack: HyDrobeAds
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
@@ -1551,8 +1531,8 @@
     offState: off
     brokenState: broken
     normalState: normal-unshaded
-  - type: DatasetVocalizer
-    dataset: LawDrobeAds
+  - type: Advertise
+    pack: LawDrobeAds
   - type: SpeakOnUIClosed
     pack: LawDrobeGoodbyes
   - type: Sprite
@@ -1579,8 +1559,8 @@
     offState: off
     brokenState: broken
     normalState: normal-unshaded
-  - type: DatasetVocalizer
-    dataset: SecDrobeAds
+  - type: Advertise
+    pack: SecDrobeAds
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
@@ -1611,8 +1591,8 @@
     offState: off
     brokenState: broken
     normalState: normal-unshaded
-  - type: DatasetVocalizer
-    dataset: BarDrobeAds
+  - type: Advertise
+    pack: BarDrobeAds
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
@@ -1667,8 +1647,8 @@
     offState: off
     brokenState: broken
     normalState: normal-unshaded
-  - type: DatasetVocalizer
-    dataset: CargoDrobeAds
+  - type: Advertise
+    pack: CargoDrobeAds
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
@@ -1699,8 +1679,8 @@
     offState: off
     brokenState: broken
     normalState: normal-unshaded
-  - type: DatasetVocalizer
-    dataset: MediDrobeAds
+  - type: Advertise
+    pack: MediDrobeAds
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
@@ -1727,8 +1707,8 @@
     offState: off
     brokenState: broken
     normalState: normal-unshaded
-  - type: DatasetVocalizer
-    dataset: ChemDrobeAds
+  - type: Advertise
+    pack: ChemDrobeAds
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
@@ -1755,8 +1735,8 @@
     offState: off
     brokenState: broken
     normalState: normal-unshaded
-  - type: DatasetVocalizer
-    dataset: CuraDrobeAds
+  - type: Advertise
+    pack: CuraDrobeAds
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
@@ -1783,8 +1763,8 @@
     offState: off
     brokenState: broken
     normalState: normal-unshaded
-  - type: DatasetVocalizer
-    dataset: AtmosDrobeAds
+  - type: Advertise
+    pack: AtmosDrobeAds
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
@@ -1815,8 +1795,8 @@
     offState: off
     brokenState: broken
     normalState: normal-unshaded
-  - type: DatasetVocalizer
-    dataset: EngiDrobeAds
+  - type: Advertise
+    pack: EngiDrobeAds
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
@@ -1847,8 +1827,8 @@
     offState: off
     brokenState: broken
     normalState: normal-unshaded
-  - type: DatasetVocalizer
-    dataset: ChefDrobeAds
+  - type: Advertise
+    pack: ChefDrobeAds
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
@@ -1875,8 +1855,8 @@
     offState: off
     brokenState: broken
     normalState: normal-unshaded
-  - type: DatasetVocalizer
-    dataset: DetDrobeAds
+  - type: Advertise
+    pack: DetDrobeAds
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
@@ -1903,8 +1883,8 @@
     offState: off
     brokenState: broken
     normalState: normal-unshaded
-  - type: DatasetVocalizer
-    dataset: JaniDrobeAds
+  - type: Advertise
+    pack: JaniDrobeAds
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
@@ -1935,8 +1915,8 @@
     offState: off
     brokenState: broken
     normalState: normal-unshaded
-  - type: DatasetVocalizer
-    dataset: SciDrobeAds
+  - type: Advertise
+    pack: SciDrobeAds
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
@@ -1963,8 +1943,8 @@
     offState: off
     brokenState: broken
     normalState: normal-unshaded
-  - type: DatasetVocalizer
-    dataset: SyndieDrobeAds
+  - type: Advertise
+    pack: SyndieDrobeAds
   - type: SpeakOnUIClosed
     pack: SyndieDrobeGoodbyes
   - type: Sprite
@@ -1995,8 +1975,8 @@
     offState: off
     brokenState: broken
     normalState: normal-unshaded
-  - type: DatasetVocalizer
-    dataset: RoboDrobeAds
+  - type: Advertise
+    pack: RoboDrobeAds
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
@@ -2023,8 +2003,8 @@
     offState: off
     brokenState: broken
     normalState: normal-unshaded
-  - type: DatasetVocalizer
-    dataset: GeneDrobeAds
+  - type: Advertise
+    pack: GeneDrobeAds
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
@@ -2051,8 +2031,8 @@
     offState: off
     brokenState: broken
     normalState: normal-unshaded
-  - type: DatasetVocalizer
-    dataset: ViroDrobeAds
+  - type: Advertise
+    pack: ViroDrobeAds
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
@@ -2127,8 +2107,8 @@
     radius: 1.5
     energy: 1.6
     color: "#3c5eb5"
-  - type: DatasetVocalizer
-    dataset: HappyHonkAds
+  - type: Advertise
+    pack: HappyHonkAds
   - type: SpeakOnUIClosed
     pack: HappyHonkGoodbyes
   - type: AccessReader
@@ -2147,8 +2127,8 @@
     offState: off
     brokenState: broken
     normalState: normal-unshaded
-  - type: DatasetVocalizer
-    dataset: PrideDrobeAds
+  - type: Advertise
+    pack: PrideDrobeAds
   - type: SpeakOnUIClosed
     pack: PrideDrobeGoodbyes
   - type: Speech
@@ -2242,35 +2222,3 @@
   - type: AccessReader
     access: [["SyndicateAgent"]]
 
-# wallmount
-- type: entity
-  parent: VendingMachineWallmount
-  id: VendingMachineWallMedical
-  name: NanoMed
-  description: "It's a wall-mounted medical equipment dispenser. Natural chemicals only!"
-  components:
-  - type: VendingMachine
-    pack: NanoMedInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
-    denyState: deny-unshaded
-  - type: Sprite
-    sprite: Structures/Machines/VendingMachines/wallmed.rsi
-    layers:
-    - state: "off"
-      map: ["enum.VendingMachineVisualLayers.Base"]
-    - state: "off"
-      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
-      shader: unshaded
-    - texture: Structures/Machines/VendingMachines/maintenance_panel.png
-      map: ["enum.WiresVisualLayers.MaintenancePanel"]
-  - type: PointLight
-    radius: 1.3
-    energy: 1.6
-    color: "#43ccb5"
-  - type: AccessReader
-    access: [["Medical"]]
-  - type: GuideHelp
-    guides:
-    - Medical

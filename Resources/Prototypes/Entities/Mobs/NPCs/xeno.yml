@@ -81,6 +81,7 @@
       groups:
         Brute: 6
   - type: DamageStateVisuals
+    rotate: true
     states:
       Alive:
         Base: running
@@ -505,6 +506,7 @@
      groups:
        Brute: 5
   - type: DamageStateVisuals
+    rotate: true
     states:
       Alive:
         Base: running

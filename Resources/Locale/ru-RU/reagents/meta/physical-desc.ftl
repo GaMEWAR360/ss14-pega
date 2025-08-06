@@ -96,4 +96,6 @@ reagent-physical-desc-holy = святое
 reagent-physical-desc-slimy = склизкое
 reagent-physical-desc-neural = нейронное
 reagent-physical-desc-unidentifiable = неидентифицируемое
-reagent-physical-desc-non-newtonian = non-newtonian
+# Corvax-Wega
+reagent-physical-desc-cum = солоноватое
+reagent-physical-desc-bitter = горькое

@@ -26,9 +26,11 @@
         maxVol: 30
         reagents:
           - ReagentId: Nutriment
-            Quantity: 15
+            Quantity: 10
           - ReagentId: Protein
             Quantity: 3
+          - ReagentId: Flavorol
+            Quantity: 5
           - ReagentId: Soysauce
             Quantity: 2
   - type: Tag
@@ -53,9 +55,11 @@
         maxVol: 30
         reagents:
           - ReagentId: Nutriment
-            Quantity: 15
+            Quantity: 10
           - ReagentId: Protein
             Quantity: 3
+          - ReagentId: Flavorol
+            Quantity: 5
           - ReagentId: CapsaicinOil
             Quantity: 2
           - ReagentId: Soysauce

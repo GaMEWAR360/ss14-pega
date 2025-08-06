@@ -13,7 +13,6 @@ using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
 using Content.Shared.Humanoid;
-using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Standing;
 using Content.Shared.Stunnable;
@@ -32,7 +31,6 @@ public sealed partial class SurgerySystem
     [Dependency] private readonly PainSystem _pain = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly PhysicsSystem _physics = default!;
-    [Dependency] private readonly MovementModStatusSystem _movementMod = default!;
 
     private static readonly SoundSpecifier GibSound = new SoundPathSpecifier("/Audio/Effects/gib3.ogg");
 
@@ -479,8 +477,8 @@ public sealed partial class SurgerySystem
 
             if (part.Contains("leg"))
             {
-                _movementMod.TryUpdateMovementSpeedModDuration(patient, MovementModStatusSystem.Slowdown, TimeSpan.FromSeconds(Math.Min(5 * severity, 10)),
-                    0.5f, 0.3f);
+                _stun.TrySlowdown(patient, TimeSpan.FromSeconds(Math.Min(5 * severity, 10)),
+                    true, 0.5f, 0.3f);
 
                 if (bodyParts.Count(p => p.Contains("leg")) >= 2)
                 {
@@ -513,7 +511,7 @@ public sealed partial class SurgerySystem
         float stunProb = Math.Min(0.15f * severity, 1f);
         if (_random.Prob(stunProb))
         {
-            _stun.TryUpdateStunDuration(patient, TimeSpan.FromSeconds(3 * severity));
+            _stun.TryStun(patient, TimeSpan.FromSeconds(3 * severity), true);
             _jittering.DoJitter(patient, TimeSpan.FromSeconds(15), true);
         }
     }

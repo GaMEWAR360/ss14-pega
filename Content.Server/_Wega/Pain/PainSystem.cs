@@ -2,7 +2,6 @@ using System.Linq;
 using Content.Server.Chat.Systems;
 using Content.Server.Medical;
 using Content.Shared.Jittering;
-using Content.Shared.Movement.Systems;
 using Content.Shared.Pain;
 using Content.Shared.Pain.Components;
 using Content.Shared.Popups;
@@ -21,7 +20,6 @@ public sealed class PainSystem : EntitySystem
     [Dependency] private readonly VomitSystem _vomit = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly MovementModStatusSystem _movementMod = default!;
 
     public override void Initialize()
     {
@@ -112,7 +110,7 @@ public sealed class PainSystem : EntitySystem
                 break;
 
             case PainEffectType.MovementPenalty:
-                _movementMod.TryUpdateMovementSpeedModDuration(uid, MovementModStatusSystem.Slowdown, TimeSpan.FromSeconds(effect.Duration), effect.SpeedMultiplier);
+                _stun.TrySlowdown(uid, TimeSpan.FromSeconds(3), true, 0.75f, 0.75f);
                 break;
 
             case PainEffectType.DropItem:
@@ -121,7 +119,7 @@ public sealed class PainSystem : EntitySystem
                 break;
 
             case PainEffectType.Stun:
-                _stun.TryKnockdown(uid, TimeSpan.FromSeconds(effect.Duration), true);
+                _stun.TryKnockdown(uid, TimeSpan.FromSeconds(3), true);
                 break;
 
             case PainEffectType.Vomit:
@@ -129,7 +127,7 @@ public sealed class PainSystem : EntitySystem
                 break;
 
             case PainEffectType.Twitch:
-                _jittering.DoJitter(uid, TimeSpan.FromSeconds(effect.Duration), true);
+                _jittering.DoJitter(uid, TimeSpan.FromSeconds(15), true);
                 break;
         }
     }

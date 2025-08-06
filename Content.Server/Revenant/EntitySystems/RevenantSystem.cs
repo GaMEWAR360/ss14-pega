@@ -47,8 +47,10 @@ public sealed partial class RevenantSystem : EntitySystem
     [Dependency] private readonly VisibilitySystem _visibility = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
 
-    private static readonly EntProtoId TransmitId = "ActionRevenantTransmit"; // Corvax-Wega-Revenant
-    private static readonly EntProtoId RevenantShopId = "ActionRevenantShop";
+    [ValidatePrototypeId<EntityPrototype>]
+    private const string RevenantShopId = "ActionRevenantShop";
+    [ValidatePrototypeId<EntityPrototype>] // Corvax-Wega-Revenant
+    private const string TransmitId = "ActionRevenantTransmit"; // Corvax-Wega-Revenant
 
     public override void Initialize()
     {
@@ -98,7 +100,7 @@ public sealed partial class RevenantSystem : EntitySystem
     private void OnMapInit(EntityUid uid, RevenantComponent component, MapInitEvent args)
     {
         _action.AddAction(uid, ref component.Action, RevenantShopId);
-        _action.AddAction(uid, ref component.Action, TransmitId); // Corvax-Wega-Revenant
+        _action.AddAction(uid, TransmitId); // Corvax-Wega-Revenant
     }
 
     private void OnStatusAdded(EntityUid uid, RevenantComponent component, StatusEffectAddedEvent args)
@@ -179,7 +181,7 @@ public sealed partial class RevenantSystem : EntitySystem
         ChangeEssenceAmount(uid, -abilityCost, component, false);
 
         _statusEffects.TryAddStatusEffect<CorporealComponent>(uid, "Corporeal", TimeSpan.FromSeconds(debuffs.Y), false);
-        _stun.TryAddStunDuration(uid, TimeSpan.FromSeconds(debuffs.X));
+        _stun.TryStun(uid, TimeSpan.FromSeconds(debuffs.X), false);
 
         return true;
     }

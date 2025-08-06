@@ -24,11 +24,6 @@
   - type: Clothing
     sprite: _Wega/Clothing/Head/Hats/surgcap_black.rsi
   - type: ClothingSterility
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
-      HeadTop : HEAD
-      HeadSide : HEAD
 
 - type: entity
   parent: ClothingHeadBase

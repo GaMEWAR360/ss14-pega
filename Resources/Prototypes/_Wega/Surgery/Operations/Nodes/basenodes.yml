@@ -1,16 +1,6 @@
 # Default
 - type: surgeryNode
-  id: ""
-  description: ""
-  transitions: []
-
-- type: surgeryNode
   id: Default
-  description: ""
-  transitions: []
-
-- type: surgeryNode
-  id: OrganManipulation
   description: ""
   transitions: []
 

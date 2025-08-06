@@ -23,7 +23,7 @@
   parent: [BaseItem]
   components:
   - type: Construction
-    graph: makegarrotte
+    graph: craftGarrotte
     node: garrottecrafted
   - type: Item
     size: Small

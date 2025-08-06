@@ -101,8 +101,7 @@
         - FlyingMobLayer
   - type: MovementAlwaysTouching
   - type: TemperatureProtection
-    heatingCoefficient: 0.001
-    coolingCoefficient: 0.001
+    coefficient: 0.001
   - type: FlashImmunity
   - type: PressureImmunity
   - type: ZombieImmune
@@ -166,7 +165,8 @@
         Blunt: 0
   - type: Metabolizer
     solutionOnBody: false
-    metabolizerTypes: [ Bloodsucker ]
+    updateFrequency: 10
+    metabolizerTypes: [ bloodsucker ]
     groups:
       - id: Medicine
       - id: Poison
@@ -230,7 +230,7 @@
             min: 1
             max: 4
   - type: Tool
-    speedModifier: 1.5
+    speed: 1.5
     qualities:
       - Prying
     useSound:
@@ -363,7 +363,7 @@
             min: 1
             max: 1
   - type: Tool
-    speedModifier: 1.5
+    speed: 1.5
     qualities:
       - Prying
     useSound:
@@ -433,7 +433,7 @@
             min: 1
             max: 3
   - type: Tool
-    speedModifier: 1.5
+    speed: 1.5
     qualities:
       - Prying
     useSound:

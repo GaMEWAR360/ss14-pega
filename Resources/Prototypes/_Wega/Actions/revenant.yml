@@ -5,7 +5,7 @@
   description: Cheat to please yourself.
   components:
   - type: Action
-    icon: _Wega/Interface/Actions/transmit.png
+    icon: { sprite: _Wega/Interface/Actions, state: transmit }
     itemIconStyle: BigAction
     useDelay: 5
   - type: TargetAction
@@ -19,7 +19,7 @@
   description: Costs 50 Essence.
   components:
   - type: Action
-    icon: _Wega/Interface/Actions/haunt.png
+    icon: { sprite: _Wega/Interface/Actions, state: haunt }
     itemIconStyle: BigAction
     useDelay: 60
   - type: InstantAction
@@ -32,7 +32,7 @@
   description: Costs 25 Essence.
   components:
   - type: Action
-    icon: _Wega/Interface/Actions/hallucination.png
+    icon: { sprite: _Wega/Interface/Actions, state: hallucination }
     itemIconStyle: BigAction
     useDelay: 15
   - type: InstantAction

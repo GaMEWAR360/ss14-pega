@@ -7,9 +7,7 @@
   flavor: cum
   color: "#DFDFDF"
   recognizable: true
-  slipData:
-    requiredSlipSpeed: 4
-    superSlippery: true
+  slippery: false
   metabolisms:
     Drink:
       effects:
@@ -35,9 +33,7 @@
   color: "#c048c2"
   recognizable: true
   physicalDesc: reagent-physical-desc-slimy
-  slipData:
-    requiredSlipSpeed: 4
-    superSlippery: true
+  slippery: false
 
 - type: reagent
   id: SlimeExtractGray

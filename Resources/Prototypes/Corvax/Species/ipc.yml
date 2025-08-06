@@ -13,7 +13,6 @@
   femaleFirstNames: NamesIpcFirstFemale
   maleLastNames: NamesIpcLast # Corvax-LastnameGender
   femaleLastNames: NamesIpcLast # Corvax-LastnameGender
-  minAge: 0
 
 - type: speciesBaseSprites
   id: MobIpcSprites

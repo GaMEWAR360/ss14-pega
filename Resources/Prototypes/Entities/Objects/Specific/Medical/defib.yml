@@ -39,7 +39,7 @@
       price: 30
     - type: GuideHelp
       guides:
-      - MedicalDoctor
+      - Medical Doctor
     # Corvax-Wega-defib-start
     - type: MeleeWeapon
       damage:

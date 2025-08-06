@@ -9,8 +9,8 @@
     offState: off
     brokenState: broken
     normalState: normal-unshaded
-  - type: DatasetVocalizer
-    dataset: IntimatAds
+  - type: Advertise
+    pack: IntimatAds
   - type: SpeakOnUIClosed
     pack: IntimatGoodbyes
   - type: Speech
@@ -40,8 +40,8 @@
     offState: off
     brokenState: broken
     normalState: normal-unshaded
-  - type: DatasetVocalizer
-    dataset: CosinessAds
+  - type: Advertise
+    pack: CosinessAds
   - type: SpeakOnUIClosed
     pack: CosinessGoodbyes
   - type: Speech
@@ -90,5 +90,6 @@
   - type: ActivatableUI
     key: enum.StoreUiKey.Key
   - type: Store
+    preset: StorePresetGeneralVoid
     balance:
       Credit: 5000

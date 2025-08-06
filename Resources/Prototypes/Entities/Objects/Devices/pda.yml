@@ -221,7 +221,7 @@
     state: pda-internmed
   - type: GuideHelp
     guides:
-    - MedicalDoctor
+    - Medical Doctor
 
 - type: entity
   parent: BaseSecurityPDA
@@ -761,7 +761,7 @@
     state: pda-medical
   - type: GuideHelp
     guides:
-    - MedicalDoctor
+    - Medical Doctor
 
 - type: entity
   parent: MedicalPDA
@@ -925,7 +925,6 @@
     id: CentcomIDCard
     penSlot:
       startingItem: PenCentcom
-      priority: -1
       whitelist:
         tags:
         - Write

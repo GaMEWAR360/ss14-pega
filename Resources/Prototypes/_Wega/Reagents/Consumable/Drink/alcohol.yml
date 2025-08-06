@@ -132,7 +132,7 @@
   parent: BaseAlcohol
   desc: reagent-desc-flaming-moe
   physicalDesc: reagent-physical-desc-blazing
-  flavor: sbiten
+  flavor: flaming-moe
   color: "#ff4500"
   metamorphicChangeColor: true
   metabolisms:

@@ -21,8 +21,6 @@ using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Hands.EntitySystems;
-using Content.Shared.StatusEffect;
-using Content.Shared.Speech.Muting;
 
 namespace Content.Server.Strangulation
 {
@@ -38,7 +36,6 @@ namespace Content.Server.Strangulation
         [Dependency] private readonly AlertsSystem _alerts = default!;
         [Dependency] private readonly SharedStutteringSystem _stutteringSystem = default!;
         [Dependency] private readonly SharedCombatModeSystem _combatModeSystem = default!;
-        [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
 
         public override void Initialize()
         {
@@ -62,7 +59,7 @@ namespace Content.Server.Strangulation
             base.Update(frameTime);
 
             var query = EntityQueryEnumerator<StrangulationComponent>();
-            while (query.MoveNext(out var uid, out _))
+            while (query.MoveNext(out var uid, out var strangulationComp))
             {
                 _stutteringSystem.DoStutter(uid, TimeSpan.FromSeconds(5), refresh: true);
             }
@@ -108,7 +105,6 @@ namespace Content.Server.Strangulation
                 return;
 
             var target = args.Target ?? default;
-            _statusEffect.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(3f), true);
 
             if (args.Cancelled)
             {
@@ -175,7 +171,7 @@ namespace Content.Server.Strangulation
 
         private void TryStartStrangle(EntityUid strangler, EntityUid target)
         {
-            if (CheckGarrotte(strangler, out _))
+            if (CheckGarrotte(strangler, out var garrotteComp))
                 StartStrangleDoAfter(strangler, target);
             else
                 StartStrangulationDelayDoAfter(strangler, target); //задержка перед удушением руками
@@ -199,7 +195,13 @@ namespace Content.Server.Strangulation
             if (stranglerComp != null && strangler == stranglerComp.Target)
                 return false;
 
-            if (!CheckGarrotte(strangler, out _) && _hands.CountFreeHands(strangler) <= 1)
+            if (!TryComp<HandsComponent>(strangler, out var hands))
+                return false;
+
+            if (_hands.CanPickupAnyHand(strangler, target))
+                return false;
+
+            if (!CheckGarrotte(strangler, out _) && _hands.CountFreeHands(strangler) >= 1)
                 return false;
 
             return true;

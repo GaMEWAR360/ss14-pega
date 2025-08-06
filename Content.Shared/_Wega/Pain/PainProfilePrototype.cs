@@ -39,12 +39,6 @@ public sealed partial class PainEffect
 
     [DataField("message")]
     public string? Message;
-
-    [DataField("duration")]
-    public float Duration = 1f;
-
-    [DataField("speedMultiplier")]
-    public float SpeedMultiplier = 1f;
 }
 
 public enum PainEffectType

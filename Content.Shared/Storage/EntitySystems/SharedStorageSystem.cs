@@ -83,7 +83,8 @@ public abstract class SharedStorageSystem : EntitySystem
     /// </summary>
     public bool NestedStorage = true;
 
-    public static readonly ProtoId<ItemSizePrototype> DefaultStorageMaxItemSize = "Normal";
+    [ValidatePrototypeId<ItemSizePrototype>]
+    public const string DefaultStorageMaxItemSize = "Normal";
 
     public const float AreaInsertDelayPerItem = 0.075f;
     private static AudioParams _audioParams = AudioParams.Default
@@ -253,7 +254,7 @@ public abstract class SharedStorageSystem : EntitySystem
 
     private void UpdatePrototypeCache()
     {
-        _defaultStorageMaxItemSize = _prototype.Index(DefaultStorageMaxItemSize);
+        _defaultStorageMaxItemSize = _prototype.Index<ItemSizePrototype>(DefaultStorageMaxItemSize);
         _sortedSizes.Clear();
         _sortedSizes.AddRange(_prototype.EnumeratePrototypes<ItemSizePrototype>());
         _sortedSizes.Sort();

@@ -308,6 +308,7 @@
       prototypes:
       - id: WallCult
         amount: 1
+      offsetVector2: 0, 1
 
 - type: entity
   id: ConstructBuildConstructSpell
@@ -327,6 +328,7 @@
       prototypes:
       - id: BloodCultConstruct
         amount: 1
+      offsetVector2: 0, 1
 
 - type: entity
   id: SoulStoneConstructSpell
@@ -346,6 +348,7 @@
       prototypes:
       - id: BloodCultSoulStone
         amount: 1
+      offsetVector2: 0, 1
 
 - type: entity
   id: CloneConstructSpell
@@ -366,3 +369,4 @@
       prototypes:
       - id: MobConstructHarvester
         amount: 1
+      offsetVector2: 0, 1

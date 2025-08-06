@@ -7,7 +7,7 @@
   - type: Material
   - type: PhysicalComposition
     materialComposition:
-      RuneMetal: 100
+      Runemetal: 100
   - type: Stack
     stackType: RuneMetal
     baseLayer: base
