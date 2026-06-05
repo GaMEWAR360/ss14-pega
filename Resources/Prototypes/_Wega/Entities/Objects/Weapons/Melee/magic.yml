@@ -608,6 +608,9 @@
     enchants:
     - WeaponClockworkSwordSwordsmen
     - WeaponClockworkSwordBloodshed
+  - type: Tag
+    tags:
+    - VeilWeapon
 
 - type: entity
   id: WeaponClockworkSwordBorg
@@ -634,6 +637,9 @@
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
   - type: DisarmMalus
+  - type: Tag
+    tags:
+    - VeilWeapon
 
 - type: entity
   id: WeaponClockHammer
@@ -683,6 +689,9 @@
     enchants:
     - WeaponClockHammerKnockback
     - WeaponClockHammerCrusher
+  - type: Tag
+    tags:
+    - VeilWeapon
 
 - type: entity
   parent: BaseEnchantable
@@ -744,6 +753,9 @@
     enchants:
     - WeaponRatvarianSpearElectricalTouch
     - WeaponRatvarianSpearConfusion
+  - type: Tag
+    tags:
+    - VeilWeapon
 
 - type: entity
   parent: BaseItem
