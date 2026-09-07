@@ -59,7 +59,7 @@ public abstract partial class SharedBorgSystem
     {
         if (ent.Comp.WhitelistInfo is null)
             return;	
-	
+
         using (args.PushGroup(nameof(BorgModuleComponent), 1))
         {
             args.PushMarkup(Loc.GetString(ent.Comp.WhitelistInfo));

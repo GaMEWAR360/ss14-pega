@@ -149,13 +149,6 @@
   parent: LightReplacer
   id: LightReplacerBorg
   suffix: Borg
-  components:
-  - type: LightReplacer
-    contents:
-    - id: LightTube
-      amount: 1000
-    - id: LightBulb
-      amount: 1000
 
 - type: entity
   name: hydra borg
